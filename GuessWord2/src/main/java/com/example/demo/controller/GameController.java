@@ -41,9 +41,5 @@ public class GameController {
 	public String reload() {
 		gameserv = gameutils.reload();
 		return "redirect:/";
-		
-		
-		
-		
 	}
 }
