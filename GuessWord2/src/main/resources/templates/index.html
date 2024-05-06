@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>HomePage</title>
+</head>
+<body>
+    <h1 align="center">Guess the Word</h1>
+     <h2 align="center" th:text="${randomWord}"></h2>
+     <h2 align="right">Remaining Tries: <span th:text="${tries}"></span></h2>
+    
+    <hr>
+    
+    <form align="center" method="post" action="/get-char">
+        <label>Guess the Character</label>
+        <input type="text" name="ch" id="ch" placeholder="type here..." />
+        <input type="submit" value="TRY" id = "try"/>
+    </form>
+    
+    <p align="center"><a href="/reload">Reload</a></p>
+    <script>
+        
+        function disableInput() {
+            document.getElementById("ch").disabled = true;
+            document.getElementById("try").disabled = true; 
+        }
+
+       
+        window.onload = function() {
+        	 var tries = parseInt(document.querySelector('span').innerText); 
+        	 if(tries == 0)
+             {
+            	 alert('Game Over')
+            	 disableInput();
+             } 
+        };
+    </script>
+</body>
+</html>
